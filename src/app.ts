@@ -10,7 +10,8 @@ const port = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:517",
+    origin: "https://ways-beans-three.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   }),
