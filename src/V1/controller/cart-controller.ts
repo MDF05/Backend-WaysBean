@@ -50,6 +50,7 @@ class CartController {
       const cart = await cartService.deleteManyByUserIdAndProductId(+userId, productId);
       res.status(200).json(successResponse("delete cart successfully", cart, 200));
     } catch (err: unknown) {
+      console.log(err);
       if (err instanceof Error) next(createError(err.message, 402));
       else next(createError("internal server error", 505));
     }
