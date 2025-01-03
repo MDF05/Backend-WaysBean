@@ -1,4 +1,4 @@
-import { Transaction } from "@prisma/client";
+import { Prisma, Transaction } from "@prisma/client";
 import prisma from "../libs/prisma";
 import { TransactionDTO } from "./../DTO/transaction-dto";
 
@@ -24,8 +24,8 @@ class TrasactionRepository {
 
     return transaction;
   }
-  async create(dto: TransactionDTO): Promise<Transaction> {
-    const transaction = prisma.transaction.create({ data: dto });
+  async create(dto: TransactionDTO[]): Promise<Prisma.BatchPayload> {
+    const transaction = await prisma.transaction.createMany({ data: dto });
 
     return transaction;
   }
