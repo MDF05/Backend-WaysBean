@@ -51,7 +51,7 @@ model Product {
   name        String
   description String
   price       String
-  quantity    String
+  quantity    Int
   images      ImageProduct[]
   profileId   Int?
 
